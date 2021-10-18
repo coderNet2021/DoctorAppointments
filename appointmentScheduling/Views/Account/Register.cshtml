@@ -3,7 +3,14 @@
 <h2>Sign Up</h2>
 <form method="post" asp-action="Register" asp-controller="Account">
 
-    <h4>Create a new account.</h4>
+    @if (User.IsInRole(appointmentScheduling.Utility.Helper.Admin))
+    {
+        <h4>Register an admin account.</h4>
+    }
+    else
+    {
+        <h4>Create a new account.</h4>
+    }
 
     <hr />
     <div asp-validation-summary="All" class="text-danger"></div>
@@ -39,7 +46,7 @@
         <label class="col-md-2" asp-for="RoleName"></label>
         <div class=" col-md-10">
             <select asp-for="RoleName"
-                    asp-items="@appointmentScheduling.Utility.Helper.GetRolesForDropDown()"
+                    asp-items="@appointmentScheduling.Utility.Helper.GetRolesForDropDown(User.IsInRole(appointmentScheduling.Utility.Helper.Admin))"
                     class="form-control"></select>
             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
         </div>
