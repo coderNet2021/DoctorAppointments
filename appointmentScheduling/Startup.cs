@@ -1,9 +1,11 @@
 using appointmentScheduling.Models;
 using appointmentScheduling.Services;
+using appointmentScheduling.Utility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,7 +34,7 @@ namespace appointmentScheduling
             services.AddTransient<IAppointmentService, AppointmentService>();
             services.AddControllersWithViews();
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
-
+            services.AddScoped<IEmailSender, EmailSender>();
             services.AddHttpContextAccessor();
         }
 
