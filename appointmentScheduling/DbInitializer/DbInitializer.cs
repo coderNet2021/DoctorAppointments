@@ -50,7 +50,7 @@ namespace appointmentScheduling.DbInitializer
                 UserName = "test@test.com",
                 Email = "test@test.com",
                 EmailConfirmed = true,
-                Name = "lilyane fawaz"
+                Name = "l f"
 
             }, "Admin@123").GetAwaiter().GetResult();
 
