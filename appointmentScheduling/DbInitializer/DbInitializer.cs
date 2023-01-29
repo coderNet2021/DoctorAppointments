@@ -54,7 +54,7 @@ namespace appointmentScheduling.DbInitializer
 
             }, "Admin@123").GetAwaiter().GetResult();
 
-            ApplicationUser user = _db.Users.FirstOrDefault(u => u.Email == "liliane.fawaz@gmail.com");
+            ApplicationUser user = _db.Users.FirstOrDefault(u => u.Email == "test@test.com");
             _userManager.AddToRoleAsync(user, Helper.Admin).GetAwaiter().GetResult();
 
         }
